@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Making of <nobr>Wirklichkeitssteuerungsgeraet</nobr></h2>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/FJ6LvHBWGio" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>What was that?!</h2>
+					<p>
+						A video presentation showing a geraet mounted on a motorcycle which allows to control
+						games from the motorcycle on either a real Amiga or an Amiga emulator running on a mobile phone.
+					</p>
+				</section>
+				<section>
+					<h2>Cracking (old) games</h2>
+				</section>
+				<section>
+					<h2>Amiga graphics</h2>
+				</section>
+				<section>
+					<h2>Run-length encoding</h2>
+				</section>
+				<section>
+					<h2>Amiga Tooling</h2>
+				</section>
+				<section>
+					<h2>Amiga Joystick</h2>
+				</section>
+				<section>
+					<h2>USB HID (Human Interface Device)</h2>
+				</section>
+				<section>
+					<h2>CAN Bus</h2>
+				</section>
+				<section>
+					<h2>IMU Sensors</h2>
+				</section>
+				<section>
+					<h2>Hardware Tooling</h2>
+				</section>
+				<section>
+					<h4>Thanks!</h4>
+					<style>
+						.reveal ul {
+							display: block;
+						}
+
+						a {
+							word-wrap: break-word;
+						}
+					</style>
+					<ul>
+						<li><a href="http://www.pouet.net/prod.php?which=69676">http://www.pouet.net/prod.php?which=69676</a></li>
+						<li><a href="https://github.com/m0ppers/wirklichkeitssteuerungsgeraet">https://github.com/m0ppers/wirklichkeitssteuerungsgeraet</a></li>
+						<li><a href="https://www.reaktor.com/blog/crash-course-to-amiga-assembly-programming/">https://www.reaktor.com/blog/crash-course-to-amiga-assembly-programming/</a></li>
+						<li><a href="https://docs.google.com/spreadsheets/d/1tUrOES5fQZa92Robr6uP8v2dzQDq9ohHjUiTU3isqdc/edit#gid=0">https://docs.google.com/spreadsheets/d/1tUrOES5fQZa92Robr6uP8v2dzQDq9ohHjUiTU3isqdc/edit#gid=0</a></li>
+						<li><a href="http://mrjester.hapisan.com/04_MC68/">http://mrjester.hapisan.com/04_MC68/</a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
