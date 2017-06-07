@@ -20,6 +20,21 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<style type="text/css">
+						.reveal ul {
+							display: block;
+						}
+
+						.reveal small.vsmall {
+  display: inline-block;
+  font-size: 0.4em;
+  line-height: 1.2em;
+  vertical-align: top; }
+
+						a {
+							word-wrap: break-word;
+						}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -38,43 +53,179 @@
 					</p>
 				</section>
 				<section>
-					<h2>Cracking (old) games</h2>
+					<section><h2>Cracking (old) games</h2></section>
+					<section>
+						<h4>Good old copy protections</h4>
+						<img src="images/copyprotection.png">
+					</section>
+					<section>
+						<h4>Machine code</h4>
+						<img src="images/debugger.png">
+					</section>
+					<section>
+						<h4>Hack it</h4>
+						<img src="images/h4xx.png">
+					</section>
 				</section>
 				<section>
-					<h2>Amiga graphics</h2>
+					<section><h2>Amiga graphics</h2></section>
+					<section>
+						<h4>Chunky image format</h4>
+						<img src="images/rgba.svg">
+					</section>
+					<section>
+						<h4>Bitplanes</h4>
+						<img src="images/gfxrip.png">
+					</section>
+					<section>
+						<h4>Bitplanes 4bpls</h4>
+						<img src="images/gfxrip-4bpls.png">
+					</section>
 				</section>
 				<section>
-					<h2>Run-length encoding</h2>
+					<section><h2>Run-length encoding</h2></section>
+					<section>
+						<div style="border: 1px solid blueviolet">
+						<code>
+00 00 00 00 00 01 02 03 03 03 03
+						</code>
+						<div>
+							▼
+						</div>
+						<code>
+<b>5*</b>00 <b>2*literal</b> 01 02 <b>4*</b>03
+						</code>
+						<div>
+							▼
+						</div>
+						<code>
+FB 00 01 01 02 FC 03 
+						</code>
+						</div>
+						<p>
+							A (crappy) implementation in rust
+						</p>
+						<p>
+							<a href="https://github.com/m0ppers/rpck">https://github.com/m0ppers/rpck</a>
+						</p>
+					</section>
 				</section>
 				<section>
-					<h2>Amiga Tooling</h2>
+					<section>
+						<h2>Amiga Tooling</h2>
+					</section>
+					<section>
+						<ul>
+							<li><a href="http://aminet.net/package/dev/asm/ira">http://aminet.net/package/dev/asm/ira</a></li>
+							<li><a href="http://sun.hasenbraten.de/vasm/">http://sun.hasenbraten.de/vasm/</a></li>
+							<li><a href="http://www.winuae.net/">http://www.winuae.net/</a></li>
+						</ul>				
+					</section>
 				</section>
 				<section>
-					<h2>Amiga Joystick</h2>
+					<section><h2>Amiga Joystick</h2></section>
+					<section>
+						<figure>
+							<img src="images/joystick-pinout.gif">
+							<figcaption><small class="vsmall">Source: http://old-computers.com/MUSEUM/connectors/sms_joystick.gif</small></figcaption>
+						</figure>
+					</section>
+
 				</section>
 				<section>
-					<h2>USB HID (Human Interface Device)</h2>
+					<section><h2>USB HID (Human Interface Device)</h2></section>
+					<section>
+						<ul>
+							<li>HID Report Descriptor describes the device</li>
+							<li>MANY primitives to describe all sorts of devices</li>
+							<li>Several device classes (keyboard, mouse, gamepad etc.)</li>
+							<li>HID Descriptor allows the Host (your computer) to interpret the raw data being sent by the device</li>
+						</ul>
+					</section>
+					<section>
+						<pre>
+							<code>
+								const uint8_t hid_report_descriptor[] = {
+	0x05, 0x01, //	USAGE_PAGE (Generic Desktop)
+	0x09, 0x05, //	USAGE (Gamepad)
+	0xA1, 0x01, //	COLLECTION (Application)
+	0xa1, 0x00,  /*     COLLECTION (Physical)          */
+	0x05, 0x01,  /*       USAGE_PAGE (Generic Desktop) */
+	0x09, 0x30,  /*       USAGE (X)                    */
+	0x09, 0x31,  /*       USAGE (Y)                    */
+	0x15, 0x81,  /*       LOGICAL_MINIMUM (-127)          */
+	0x25, 0x7f,  /*       LOGICAL_MAXIMUM (127)        */
+	0x75, 0x08,  /*       REPORT_SIZE (8)              */
+	0x95, 0x02,  /*       REPORT_COUNT (2)             */
+	0x81, 0x02,  /*       INPUT (Data,Var,Rel)         */
+	0xc0,        /*     END_COLLECTION                 */
+	0x05, 0x09, //	USAGE_PAGE (Button)
+	0x19, 0x01, //	USAGE_MINIMUM (Button 1)
+	0x29, 0x02, //	USAGE_MAXIMUM (Button 2)
+	0x15, 0x00, //	LOGICAL_MINIMUM (0)
+	0x25, 0x01, //	LOGICAL_MAXIMUM (1)
+	0x75, 0x01, //	REPORT_SIZE (1)
+	0x95, 0x08, //	REPORT_COUNT (8)
+	0x81, 0x02, //	INPUT (Data,Var,Abs)
+	0xC0,		//	END_COLLECTION
+};
+							</code>
+						</pre>
+					</section>
 				</section>
 				<section>
-					<h2>CAN Bus</h2>
+					<section><h2>CAN Bus</h2></section>
+					<section>
+						<figure>
+							<img
+							src="images/motorcycle-canbus.jpg" alt="motorcycle-canbus">	
+							<figcaption><small class="vsmall">Source: http://www.bmwmotorcycles.com/_common/img/technology_detail/suspension/asc/asc_340x230_3.jpg</small></figcaption>
+						</figure>
+						<ul>
+							<li>Used to exchange messages within vehicles</li>
+							<li>ISO Layer 1 and 2</li>
+							<li>Modern cars use ethernet</li>
+							<li>CAN members will do simple, continous broadcasting</li>
+							<li>Implicit priorities using the address</li>
+						</ul>
+					</section>
+					<section>
+						<h4>A CAN message</h4>
+						<table border="1">
+							<tr>
+								<th>Address</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>D5</th><th>D6</th><th>D7</th><th>D8</th>
+							</tr>
+							<tr>
+								<td>0x10c</td><td>FF</td>00<td>00</td><td>00</td><td>00</td><td>16</td><td>E5</td><td>FF</td><td>FF</td>
+							</tr>
+						</table>
+						<p>
+							Byte 7 indicates the throttle is at full (00 would be no throttle)
+						</p>
+					</section>
 				</section>
 				<section>
-					<h2>IMU Sensors</h2>
+					<section><h2>IMU Sensors</h2></section>
+					<section>
+						<h4>What does it do?</h4>
+						<figure>
+							<img
+								src="images/imu.jpg" alt="imu">	
+								<figcaption><small class="vsmall">Source: http://4.bp.blogspot.com/-gDbKzI80lhw/Vg0F-w6QcUI/AAAAAAAABF4/hfAwVy9Gu04/s640/PiAxes.jpg</small></figcaption>
+						</figure>
+					</section>
 				</section>
 				<section>
-					<h2>Hardware Tooling</h2>
+					<section><h2>Hardware Tooling</h2></section>
+					<section>
+						<ul>
+							<li><a href="http://kicad-pcb.org/">http://kicad-pcb.org/</a></li>
+							<li><a href="http://fritzing.org/home/">http://fritzing.org/home/</a></li>
+						</ul>
+					</section>
 				</section>
 				<section>
 					<h4>Thanks!</h4>
-					<style>
-						.reveal ul {
-							display: block;
-						}
-
-						a {
-							word-wrap: break-word;
-						}
-					</style>
 					<ul>
 						<li><a href="http://www.pouet.net/prod.php?which=69676">http://www.pouet.net/prod.php?which=69676</a></li>
 						<li><a href="https://github.com/m0ppers/wirklichkeitssteuerungsgeraet">https://github.com/m0ppers/wirklichkeitssteuerungsgeraet</a></li>
